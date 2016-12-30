@@ -4,6 +4,6 @@ import * as ReactDOM from 'react-dom';
 import Greeting from './greeting';
 
 ReactDOM.render(
-  <Greeting name="JGluhov" />,
+  <Greeting name='JGluhov' />,
   document.getElementById('root')
 );

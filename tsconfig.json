@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "alwaysStrict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "jsx": "react",
+    "module": "commonjs",
+    "outDir": "./public/",
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "target": "ES5"
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

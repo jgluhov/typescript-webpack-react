@@ -15,7 +15,14 @@
     "outDir": "./public/",
     "preserveConstEnums": true,
     "removeComments": true,
-    "target": "ES5"
+    "target": "ES5",
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "types": [
+      "react",
+      "react-dom"
+    ]
   },
   "exclude": [
     "node_modules"

@@ -18,9 +18,15 @@
   },
   "homepage": "https://github.com/jgluhov/typescript-webpack-react#readme",
   "devDependencies": {
+    "@types/react": "^0.14.55",
+    "@types/react-dom": "^0.14.20",
     "path": "^0.12.7",
     "ts-loader": "^1.3.3",
     "typescript": "^2.1.4",
     "webpack": "^1.14.0"
+  },
+  "dependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
   }
 }

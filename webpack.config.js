@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
 
-	entry: ['./src/app.ts'],
+	entry: ['./src/app'],
 
 	output: {
 		path: path.resolve(__dirname, 'public'),

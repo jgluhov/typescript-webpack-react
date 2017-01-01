@@ -1,10 +1,11 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import AppComponent from "./app.component";
 
-import Greeting from './greeting.component';
-import Hello from './hello.component';
+// import Greeting from './greeting.component';
+// import Hello from './hello.component';
 
 ReactDOM.render(
-  <div><Greeting name='JGluhov'/><Hello value={7}/></div>,
+  <AppComponent/>,
   document.getElementById('root')
 );

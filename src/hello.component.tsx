@@ -1,4 +1,5 @@
 import * as React from 'react';
+import WidgetComponent from './widget.component';
 
 type IHelloComponentProps = {
   message?: string;
@@ -21,10 +22,8 @@ class HelloComponent extends React.Component<IHelloComponentProps, IHelloCompone
     };
   }
 
-  onChangeHandler(e: Event) {
-    const inputElement = e.target as HTMLInputElement;
-
-    this.setState({ message: inputElement.value });
+  onUpdateHandler(value: string) {
+    this.setState({ message: value });
   }
 
   render() {
@@ -32,7 +31,7 @@ class HelloComponent extends React.Component<IHelloComponentProps, IHelloCompone
 
     return (
       <div>
-        <input type='text' placeholder='Enter your message' onChange={this.onChangeHandler.bind(this)} />
+        <WidgetComponent update={this.onUpdateHandler.bind(this)}/>
         <h1>Hello JGluhov - {this.state.message} - {this.props.value}</h1>
         <div>Cat: {this.state.cat}</div>
       </div>

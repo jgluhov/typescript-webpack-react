@@ -6,7 +6,8 @@ module.exports = {
 
 	output: {
 		path: path.resolve(__dirname, 'public'),
-		filename: 'bundle.js'
+		filename: 'bundle.js',
+		sourceMapFilename: 'bundle.map'
 	},
 
 	resolve: {
@@ -17,11 +18,13 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.tsx?$/,
-				loader: 'ts-loader',
+				loader: 'awesome-typescript-loader',
 				exclude: /node_modules/
 			}
 		]
 	},
+
+	devtool: 'inline-source-map',
 
 	watch: true
 

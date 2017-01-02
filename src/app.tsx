@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import StarWarsComponent from './components/star-wars.component';
+import HighOrderComponent from './components/high-order.component';
 
 ReactDOM.render(
-  <StarWarsComponent/>,
+  <HighOrderComponent />,
   document.getElementById('root')
 );

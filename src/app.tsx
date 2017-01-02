@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import UpdatedComponent from "./components/updated.component";
+import StarWarsComponent from './components/star-wars.component';
 
 ReactDOM.render(
-  <UpdatedComponent value={5} />,
+  <StarWarsComponent/>,
   document.getElementById('root')
 );

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-type MountComponentState = {
+type MountedComponentState = {
   value: number;
   multiply?: number
 };
@@ -10,7 +10,7 @@ const initialState = {
   value: 0
 };
 
-class MountComponent extends React.Component<{}, MountComponentState> {
+class MountedComponent extends React.Component<{}, MountedComponentState> {
 
   private incrementInterval: number;
 
@@ -66,7 +66,7 @@ class WrapperComponent extends React.Component<{}, {}> {
   }
 
   mount() {
-    ReactDOM.render(<MountComponent/>, this.contentElement);
+    ReactDOM.render(<MountedComponent/>, this.contentElement);
   }
 
   unmount() {

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import RefsComponent from "./refs.component";
+import MountComponent from './mount.component';
 
 ReactDOM.render(
-  <RefsComponent/>,
+  <MountComponent/>,
   document.getElementById('root')
 );

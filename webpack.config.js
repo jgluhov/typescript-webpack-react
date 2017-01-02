@@ -18,10 +18,7 @@ module.exports = {
 		loaders: [
 			{
 				test: /\.tsx?$/,
-				loaders: [
-					'babel-loader?presets[]=es2015&plugins[]=transform-runtime',
-					'awesome-typescript-loader'
-				],
+				loader: 'awesome-typescript-loader',
 				exclude: /node_modules/
 			}
 		]

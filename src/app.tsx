@@ -1,9 +1,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import MountComponent from './mount.component';
+import UpdatedComponent from "./components/updated.component";
 
 ReactDOM.render(
-  <MountComponent/>,
+  <UpdatedComponent value={5} />,
   document.getElementById('root')
 );

@@ -12,3 +12,13 @@ interface CommonProps extends HighOrderComponentState {
 interface ButtonComponentProps extends CommonProps {}
 
 interface LabelComponentProps extends CommonProps {}
+
+interface StatelessComponent<P> {
+  (props?: P, context?: any): React.ReactElement<any>;
+}
+
+interface ComponentClass<P> {
+  new(props?: P, context?: any): React.Component<P, any>;
+}
+
+type ReactComponent = ComponentClass<any> | StatelessComponent<any>;

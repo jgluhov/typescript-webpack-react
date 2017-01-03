@@ -5,24 +5,25 @@ const initialState: HighOrderComponentState = {
   count: 0
 };
 
-const HighOrderComponent = (InnerComponent: any) => class extends React.Component<any, HighOrderComponentState> {
+const HighOrderComponent = (InnerComponent: ReactComponent) => {
+  return class extends React.Component<any, HighOrderComponentState> {
+    constructor() {
+      super();
+      this.state = initialState;
+    }
 
-  constructor() {
-    super();
-    this.state = initialState;
-  }
+    update() {
+      this.setState({
+        count: this.state.count + 1
+      })
+    }
 
-  update() {
-    this.setState({
-      count: this.state.count + 1
-    })
-  }
-
-  render() {
-    return (
-      <InnerComponent {...this.props} {...this.state} update={this.update.bind(this)}/>
-    )
-  }
+    render() {
+      return (
+        <InnerComponent {...this.props} {...this.state} update={this.update.bind(this)}/>
+      )
+    }
+  };
 };
 
 const ButtonComponent = (props: ButtonComponentProps) =>

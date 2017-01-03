@@ -4,7 +4,7 @@
   "description": "Getting started with ReactJS",
   "main": "index.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --verbose"
   },
   "repository": {
     "type": "git",

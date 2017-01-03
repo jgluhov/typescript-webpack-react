@@ -47,11 +47,14 @@ class TSXLiveComponent extends React.Component<{}, TSXLiveComponentState> {
   render() {
     return (
       <div className="container">
-        <textarea
-          defaultValue={this.state.input}
-          onChange={this.onChangeHandler.bind(this)}
-          onFocus={this.onFocusHandler.bind(this)}
-        ></textarea>
+        <div className="input">
+          <textarea
+            defaultValue={this.state.input}
+            onChange={this.onChangeHandler.bind(this)}
+            onFocus={this.onFocusHandler.bind(this)}
+          ></textarea>
+          <div className="alert">{this.state.error}</div>
+        </div>
         <pre>
           {this.state.output}
         </pre>

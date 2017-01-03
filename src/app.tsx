@@ -2,9 +2,9 @@ import 'normalize.css/normalize.css';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import ButtonsComponent from "./components/buttons.component";
+import RangesComponent from './components/ranges/ranges.component';
 
 ReactDOM.render(
-  <ButtonsComponent/>,
+  <RangesComponent/>,
   document.getElementById('root')
 );

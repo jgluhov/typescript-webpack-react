@@ -1,18 +1,13 @@
+///<reference path="./buttons.component.d.ts" />
+
 import * as React from 'react';
 
-interface IButton {
-  value: number,
-  text: string
-}
+const MAX_BUTTONS = 3;
+const INITIAL_BUTTON_VALUE = 0;
 
-interface IButtonsComponentState {
-  buttons: Object[];
-}
-
-const buttons = new Array(3).fill(0).reduce((a, c? , i) => {
-  a.push({ value: i, text: String.fromCharCode(65) });
-  return a;
-}, []);
+const buttons = new Array(MAX_BUTTONS)
+  .fill(INITIAL_BUTTON_VALUE)
+  .map((value, i) => ({ value: value + i, text: String.fromCharCode(65 + i) }));
 
 const initialState = {
   buttons: buttons

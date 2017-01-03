@@ -17,7 +17,8 @@ class WrapperComponent extends React.Component<WrapperComponentProps, WrapperCom
   render() {
     // let items = React.Children.map(this.props.children, (child: React.ReactNode) => child);
     // let items = React.Children.toArray(this.props.children);
-    React.Children.forEach(this.props.children, (child: React.ReactChild) => console.log(child.props.className));
+    React.Children.forEach(this.props.children,
+      (child: React.ReactElement<ChildProps>) => console.log(child.props.className));
     // let items = React.Children.only(this.props.children[0]);
     // console.log(items);
 

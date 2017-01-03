@@ -3,3 +3,7 @@ type WrapperComponentProps = {
 };
 
 type WrapperComponentState = {};
+
+type ChildProps = {
+  className: string;
+};

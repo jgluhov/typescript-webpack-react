@@ -2,9 +2,9 @@ import 'normalize.css/normalize.css';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import TSXLiveComponent from './components/tsx-live/tsx-live.component';
+import Parent from "./components/parent.component";
 
 ReactDOM.render(
-  <TSXLiveComponent/>,
+  <Parent />,
   document.getElementById('root')
 );

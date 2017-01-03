@@ -1,4 +1,5 @@
 const path = require('path');
+const TextWebpackPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 
@@ -11,7 +12,7 @@ module.exports = {
 	},
 
 	resolve: {
-		extensions: ['', '.ts', '.tsx', '.js']
+		extensions: ['', '.ts', '.tsx', '.js', '.css']
 	},
 
 	module: {
@@ -20,9 +21,17 @@ module.exports = {
 				test: /\.tsx?$/,
 				loader: 'awesome-typescript-loader',
 				exclude: /node_modules/
+			},
+			{
+				test: /\.css$/,
+				loader: TextWebpackPlugin.extract('style', 'css?sourceMap')
 			}
 		]
 	},
+
+	plugins: [
+		new TextWebpackPlugin('bundle.css')
+	],
 
 	devtool: 'inline-source-map',
 

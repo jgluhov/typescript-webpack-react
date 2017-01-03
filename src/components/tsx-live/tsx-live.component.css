@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body,
+body > #root,
+body > #root > .container {
+  height: 100%;
+}
+
+.container > textarea,
+.container > pre {
+  float: left;
+  width: calc(50% - 20px);
+  margin: 10px;
+  border: 1px solid #333;
+  height: calc(100% - 20px);
+  border-radius: 5px;
+}
+
+.container > textarea {
+  font-size: 14px;
+  resize: none;
+}
+
+.container > pre {
+  background-color: aliceblue;
+}

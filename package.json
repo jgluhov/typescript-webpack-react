@@ -19,16 +19,22 @@
   "homepage": "https://github.com/jgluhov/typescript-webpack-react#readme",
   "devDependencies": {
     "@types/core-js": "^0.9.35",
+    "@types/node": "^6.0.55",
     "@types/react": "^0.14.55",
     "@types/react-dom": "^0.14.20",
     "@types/whatwg-fetch": "0.0.33",
     "awesome-typescript-loader": "^3.0.0-beta.17",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^1.0.1",
     "path": "^0.12.7",
+    "style-loader": "^0.13.1",
     "tslint": "^4.2.0",
     "typescript": "^2.1.4",
     "webpack": "^1.14.0"
   },
   "dependencies": {
+    "babel-standalone": "^6.21.1",
+    "normalize.css": "^5.0.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "whatwg-fetch": "^2.0.1"

@@ -9,10 +9,21 @@ declare namespace Data {
 }
 
 declare namespace Actions {
-  interface ITodo {
+  interface IAddTodo {
     type: string,
-    todo: Data.ITodo
+    payload: {
+      id: string,
+      text: string
+    }
   }
+
+  interface IToggleTodo {
+    type: string,
+    payload: {
+      id: string
+    }
+  }
+
   interface IFilter {
     type: string,
     filter: Data.IFilter
@@ -26,9 +37,19 @@ declare namespace AddTodo {
   interface IState {}
 }
 
+declare namespace Todo {
+  interface IProps {
+    todo: Data.ITodo,
+    onToggle: (todo: Data.ITodo) => void,
+    className: string
+  }
+  interface IState {}
+}
+
 declare namespace TodoList {
   interface IProps {
-    todos: Data.ITodo[]
+    todos: Data.ITodo[],
+    onToggle: (todo: Data.ITodo) => any
   }
   interface IState {}
 

@@ -6,7 +6,7 @@ import store from './store';
 import TodoList from './components/TodoList';
 import AddTodo from './components/AddTodo';
 
-const Todo = () => (
+const TodoApp = () => (
   <Provider store={store}>
     <div className="container">
       <TodoList />
@@ -15,4 +15,4 @@ const Todo = () => (
   </Provider>
 );
 
-export default Todo;
+export default TodoApp;

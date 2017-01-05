@@ -2,10 +2,10 @@
 
 import * as React from 'react';
 import * as Redux from 'react-redux';
-import * as Helpers from '../helpers';
+import Helpers from '../helpers';
 import * as Actions from '../actions';
 
-class AddTodo extends React.Component<AddTodo.Props, AddTodo.State> {
+class AddTodo extends React.Component<AddTodo.IProps, AddTodo.IState> {
 
   private input: HTMLInputElement;
 

@@ -1,16 +1,27 @@
+declare namespace Data {
+  interface ITodo {
+    id: number,
+    text: string
+    completed?: boolean
+  }
+}
 declare namespace Actions {
   interface ITodo {
     type: string,
-    payload: {
-      id: number,
-      text: string
-    }
+    payload: Data.ITodo
   }
 }
 
 declare namespace AddTodo {
-  interface Props {
+  interface IProps {
     addTodo: (value: string) => void
   }
-  interface State {}
+  interface IState {}
+}
+
+declare namespace TodoList {
+  interface IProps {
+    todos: Data.ITodo[]
+  }
+  interface IState {}
 }

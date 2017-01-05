@@ -3,12 +3,14 @@ import * as React from 'react';
 import {Provider} from "react-redux";
 
 import store from './store';
+import TodoList from './components/TodoList';
 import AddTodo from './components/AddTodo';
 
 const Todo = () => (
   <Provider store={store}>
     <div className="container">
-      <AddTodo/>
+      <TodoList />
+      <AddTodo />
     </div>
   </Provider>
 );

@@ -1,4 +1,5 @@
 ///<reference path="../interfaces.d.ts" />
+
 import * as React from 'react';
 import * as Redux from 'react-redux';
 import * as Helpers from '../helpers';
@@ -32,7 +33,9 @@ class AddTodo extends React.Component<AddTodo.Props, AddTodo.State> {
                      placeholder="What do you want todo?"
               />
             </div>
-            <button type="submit" className="btn btn-default">Add todo</button>
+            <button type="submit" className="btn btn-default">
+              Add todo
+            </button>
           </form>
         </div>
       </div>
@@ -42,5 +45,7 @@ class AddTodo extends React.Component<AddTodo.Props, AddTodo.State> {
 
 export default Redux.connect(
   (state) => state,
-  (dispatch) => ({ addTodo: (text: string) => dispatch(Actions.addTodo(text))})
+  (dispatch) => ({
+    addTodo: (text: string) => dispatch(Actions.addTodo(text))
+  })
 )(AddTodo);

@@ -1,12 +1,10 @@
 ///<reference path="../interfaces.d.ts" />
 
-import {
-  ADD_TODO
-} from '../constants';
+import * as Constants from '../constants';
 
 const todo = (state = {}, action: Actions.ITodo) => {
   switch (action.type) {
-    case ADD_TODO:
+    case Constants.Actions.ADD_TODO:
       return {
         id: action.todo.id,
         text: action.todo.text,
@@ -19,7 +17,7 @@ const todo = (state = {}, action: Actions.ITodo) => {
 
 const todos = (state = [], action: Actions.ITodo) => {
   switch (action.type) {
-    case ADD_TODO:
+    case Constants.Actions.ADD_TODO:
       return [
         ...state,
         todo(undefined, action)

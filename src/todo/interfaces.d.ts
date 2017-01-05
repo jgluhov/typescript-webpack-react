@@ -1,6 +1,6 @@
 declare namespace Data {
   interface ITodo {
-    id: number,
+    id: string,
     text: string
     completed?: boolean
   }
@@ -8,7 +8,7 @@ declare namespace Data {
 declare namespace Actions {
   interface ITodo {
     type: string,
-    payload: Data.ITodo
+    todo: Data.ITodo
   }
 }
 

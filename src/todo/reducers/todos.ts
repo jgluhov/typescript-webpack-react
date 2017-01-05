@@ -8,8 +8,8 @@ const todo = (state = {}, action: Actions.ITodo) => {
   switch (action.type) {
     case ADD_TODO:
       return {
-        id: action.payload.id,
-        text: action.payload.text,
+        id: action.todo.id,
+        text: action.todo.text,
         completed: false
       };
     default:

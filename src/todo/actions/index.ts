@@ -1,11 +1,11 @@
-///<reference path="../interfaces/actions.d.ts" />
+///<reference path="../interfaces.d.ts" />
 
-namespace Actions {
-  export const addTodo = (text: string): Actions.ITodo => ({
+export const addTodo = (text: string): Actions.ITodo => {
+  return {
     type: 'ADD_TODO',
     payload: {
       id: 0,
       text
     }
-  });
-}
+  }
+};

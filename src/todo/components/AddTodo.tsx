@@ -1,9 +1,10 @@
+///<reference path="../interfaces.d.ts" />
 import * as React from 'react';
 import * as Redux from 'react-redux';
 import * as Helpers from '../helpers';
-// import {addTodo} from '../actions';
+import * as Actions from '../actions';
 
-class AddTodo extends React.Component<{}, {}>{
+class AddTodo extends React.Component<AddTodo.Props, AddTodo.State> {
 
   private input: HTMLInputElement;
 
@@ -14,7 +15,7 @@ class AddTodo extends React.Component<{}, {}>{
       return;
     }
 
-    // this.props.dispatch(addTodo(this.input.value));
+    this.props.addTodo(this.input.value);
     this.input.value = '';
   }
 
@@ -39,4 +40,7 @@ class AddTodo extends React.Component<{}, {}>{
   }
 }
 
-export default Redux.connect()(AddTodo);
+export default Redux.connect(
+  (state) => state,
+  (dispatch) => ({ addTodo: (text: string) => dispatch(Actions.addTodo(text))})
+)(AddTodo);

@@ -1,4 +1,4 @@
-///<reference path="../interfaces/actions.d.ts" />
+///<reference path="../interfaces.d.ts" />
 
 import {
   ADD_TODO

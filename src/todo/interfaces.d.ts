@@ -7,3 +7,10 @@ declare namespace Actions {
     }
   }
 }
+
+declare namespace AddTodo {
+  interface Props {
+    addTodo: (value: string) => void
+  }
+  interface State {}
+}

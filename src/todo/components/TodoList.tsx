@@ -9,8 +9,8 @@ class TodoList extends React.Component<TodoList.IProps, TodoList.IState> {
     return (
       <div className="panel panel-default">
         <div className="panel-body">
-          <ul>
-            {this.props.todos.map((todo: Data.ITodo) => <li>{todo.text}</li>)}
+          <ul className="list-group">
+            {this.props.todos.map((todo: Data.ITodo) => <li key={todo.id} className="list-group-item">{todo.text}</li>)}
           </ul>
         </div>
       </div>

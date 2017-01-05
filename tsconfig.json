@@ -24,6 +24,7 @@
       "react-dom",
       "core-js",
       "react-redux",
+      "redux-logger",
       "node"
     ]
   },

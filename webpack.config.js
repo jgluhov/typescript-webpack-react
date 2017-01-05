@@ -25,12 +25,16 @@ module.exports = {
 			{
 				test: /\.css$/,
 				loader: TextWebpackPlugin.extract('style', 'css?sourceMap')
+			},
+			{
+				test: /\.(eot|woff2?|ttf|svg)/,
+				loader: 'file-loader?name=assets/fonts/[name].[hash].[ext]'
 			}
 		]
 	},
 
 	plugins: [
-		new TextWebpackPlugin('bundle.css')
+		new TextWebpackPlugin('css/bundle.css')
 	],
 
 	devtool: 'inline-source-map',

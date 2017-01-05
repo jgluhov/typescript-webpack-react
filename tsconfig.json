@@ -23,6 +23,7 @@
       "react",
       "react-dom",
       "core-js",
+      "react-redux",
       "node"
     ]
   },

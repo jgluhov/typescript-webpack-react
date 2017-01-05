@@ -1,0 +1,1 @@
+export const isValid = (value: string) => value.trim().length > 0;

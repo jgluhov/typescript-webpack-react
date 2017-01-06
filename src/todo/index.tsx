@@ -4,16 +4,16 @@ import {Provider} from "react-redux";
 
 import store from './store';
 
-import TodoHeader from './components/TodoHeader';
-import TodoMain from './components/TodoMain';
-import TodoFooter from './components/TodoFooter';
+import HeaderComponent from './components/header.component';
+import MainComponent from './components/main.component';
+import FooterComponent from './components/footer.component';
 
 const TodoApp = () => (
   <Provider store={store}>
     <div className="container">
-      <TodoHeader/>
-      <TodoMain />
-      <TodoFooter />
+      <HeaderComponent/>
+      <MainComponent />
+      <FooterComponent />
     </div>
   </Provider>
 );

@@ -1,3 +1,16 @@
+type TODOS_FILTER = 'SHOW_ALL' | 'SHOW_COMPLETED' | 'SHOW_ACTIVE'
+
+interface LINK {
+  href: string,
+  text: string
+}
+
+interface ITodo {
+  id: string,
+  text: string
+  completed?: boolean
+}
+
 declare namespace Data {
   interface ITodo {
     id: string,
@@ -5,7 +18,7 @@ declare namespace Data {
     completed?: boolean
   }
 
-  type IFilter = string;
+  type IFilter = TODOS_FILTER;
 }
 
 declare namespace Actions {
@@ -24,9 +37,11 @@ declare namespace Actions {
     }
   }
 
-  interface IFilter {
+  interface IFilterTodos {
     type: string,
-    filter: Data.IFilter
+    payload: {
+      filter: Data.IFilter
+    }
   }
 }
 
@@ -47,14 +62,40 @@ declare namespace ITodoForm {
   interface State {}
 }
 
-declare namespace ITodoList {
+declare namespace ITodosListComponent {
   interface Props {
-    todos: Data.ITodo[],
-    onToggle: (todo: Data.ITodo) => any
+    todos: ITodo[],
+    onToggle: (todo: ITodo) => Actions.IToggleTodo,
+    children?: React.ReactNode
   }
   interface State {}
 }
 
-declare namespace IVisibleTodoList {
-  type TODOS_FILTER = 'SHOW_ALL' | 'SHOW_COMPLETED' | 'SHOW_ACTIVE'
+
+declare namespace IFilterListComponent {
+  interface Props {
+    filters: TODOS_FILTER[],
+    children?: React.ReactNode
+  }
+  interface State {}
 }
+
+declare namespace  IFilterListItemComponent {
+  interface Props {
+    active: boolean,
+    onSelect: (filter: TODOS_FILTER) => void,
+    filter: TODOS_FILTER,
+    children?: React.ReactNode
+  }
+  interface State {}
+}
+
+
+declare interface IAppState {
+  todos: Data.ITodo[],
+  filter: TODOS_FILTER,
+  filters: TODOS_FILTER[]
+}
+
+
+

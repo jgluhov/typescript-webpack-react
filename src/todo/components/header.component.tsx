@@ -1,7 +1,7 @@
 import '../styles/todo-header.css';
 import * as React from 'react';
 
-const TodoHeader = () => (
+const HeaderComponent = () => (
   <header>
     <div className="jumbotron">
       <h1>todos</h1>
@@ -9,4 +9,4 @@ const TodoHeader = () => (
   </header>
 );
 
-export default TodoHeader;
+export default HeaderComponent;

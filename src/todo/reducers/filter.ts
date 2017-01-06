@@ -2,10 +2,10 @@
 
 import * as Constants from '../constants';
 
-const filter = (state = Constants.FILTER_SHOW_ALL, action: Actions.IFilter): Data.IFilter => {
+const filter = (state = Constants.FILTER_SHOW_ALL, action: Actions.IFilterTodos) => {
   switch (action.type) {
-    case Constants.Actions.SET_FILTER:
-      return action.filter;
+    case Constants.Actions.FILTER_TODOS:
+      return action.payload.filter;
     default: return state;
   }
 };

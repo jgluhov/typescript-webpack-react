@@ -20,3 +20,12 @@ export const toggleTodo = (id: string): Actions.IToggleTodo => {
     }
   }
 };
+
+export const filterTodos = (filter: TODOS_FILTER): Actions.IFilterTodos => {
+  return {
+    type: Constants.Actions.FILTER_TODOS,
+    payload: {
+      filter
+    }
+  }
+};

@@ -30,28 +30,31 @@ declare namespace Actions {
   }
 }
 
-declare namespace AddTodo {
-  interface IProps {
-    addTodo: (value: string) => void
-  }
-  interface IState {}
-}
 
-declare namespace Todo {
-  interface IProps {
+declare namespace ITodo {
+  interface Props {
     todo: Data.ITodo,
     onToggle: (todo: Data.ITodo) => void,
     className: string
   }
-  interface IState {}
+  interface State {}
 }
 
-declare namespace TodoList {
-  interface IProps {
+declare namespace ITodoForm {
+  interface Props {
+    addTodo: (text: string) => void
+  }
+  interface State {}
+}
+
+declare namespace ITodoList {
+  interface Props {
     todos: Data.ITodo[],
     onToggle: (todo: Data.ITodo) => any
   }
-  interface IState {}
+  interface State {}
+}
 
-  type TODOS_FILTER = 'SHOW_ALL' | 'SHOW_COMPLETED' | 'SHOW_ACTIVE';
+declare namespace IVisibleTodoList {
+  type TODOS_FILTER = 'SHOW_ALL' | 'SHOW_COMPLETED' | 'SHOW_ACTIVE'
 }

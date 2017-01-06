@@ -1,0 +1,8 @@
+.jumbotron {
+  background-color: transparent;
+}
+.jumbotron > h1 {
+  font-size: 72px;
+  font-weight: 100;
+  text-align: center;
+}

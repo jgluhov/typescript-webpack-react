@@ -2,16 +2,16 @@
 
 import * as Constants from '../constants';
 
-const todo = (state = {}, action: Actions.IAddTodo) => {
+const todo = (state = {}, action: Actions.ICreateTodo) => {
   switch (action.type) {
-    case Constants.Actions.ADD_TODO:
+    case Constants.Actions.CREATE_TODO:
       return {
         id: action.payload.id,
         text: action.payload.text,
         completed: false
       };
     case Constants.Actions.TOGGLE_TODO:
-      const todo = state as Data.ITodo;
+      const todo = state as ITodo;
 
       if(todo.id !== action.payload.id) {
         return todo;
@@ -26,15 +26,15 @@ const todo = (state = {}, action: Actions.IAddTodo) => {
   }
 };
 
-const todos = (state = [], action: Actions.IAddTodo) => {
+const todos = (state = [], action: Actions.ICreateTodo) => {
   switch (action.type) {
-    case Constants.Actions.ADD_TODO:
+    case Constants.Actions.CREATE_TODO:
       return [
         ...state,
         todo(undefined, action)
       ];
     case Constants.Actions.TOGGLE_TODO:
-      return state.map((t: Data.ITodo) => todo(t, action));
+      return state.map((t: ITodo) => todo(t, action));
     default:
       return state;
   }

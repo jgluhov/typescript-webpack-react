@@ -1,14 +1,14 @@
-///<reference path="../interfaces.d.ts" />
-import '../styles/todo.css';
+///<reference path="../../interfaces.d.ts" />
+import '../../styles/todo.css';
 import * as React from 'react';
 
-class Todo extends React.Component<ITodo.Props, ITodo.State> {
+class TodosListItemComponent extends React.Component<ITodosListItemComponent.Props, ITodosListItemComponent.State> {
   render() {
     return (
-      <li className="list-group-item"
-          onClick={this.props.onToggle.bind(this)}
-      >
-        {this.props.todo.text}
+      <li className="list-group-item">
+        <div onClick={this.props.onToggle.bind(this, this.props.todo)}>
+          {this.props.todo.text}
+        </div>
       </li>
     );
   }
@@ -19,4 +19,4 @@ class Todo extends React.Component<ITodo.Props, ITodo.State> {
   };
 }
 
-export default Todo;
+export default TodosListItemComponent;

@@ -4,8 +4,10 @@ import FilterListComponent from './filter-list/filter-list.component';
 
 const FooterComponent = () => (
   <footer>
-    <div className="well well-sm">
-      <FilterListComponent />
+    <div className="panel panel-default">
+      <div className="panel-body">
+        <FilterListComponent />
+      </div>
     </div>
   </footer>
 );

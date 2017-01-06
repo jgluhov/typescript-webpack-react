@@ -1,5 +1,4 @@
 ///<reference path="../../interfaces.d.ts"/>
-
 import * as Redux from 'react-redux';
 import * as React from 'react';
 import * as Actions from '../../actions';
@@ -12,12 +11,12 @@ class TodosListComponent extends React.Component
   render() {
     return (
       <ul className="list-group">
-        {this.props.todos.map((todo: Data.ITodo) => (
+        {this.props.todos.map((todo: ITodo) => (
           <TodosListItemComponent
             key={todo.id}
             className='list-group-item'
             todo={todo}
-            onToggle={this.props.onToggle.bind(this, todo)}
+            onToggle={this.props.onToggle.bind(this)}
           >
             {todo.text}
           </TodosListItemComponent>
@@ -26,14 +25,14 @@ class TodosListComponent extends React.Component
     )
   }
 
-  public static filterTodos = (todos: ITodo[], filter: TODOS_FILTER): ITodo[] => {
+  public static filterTodos = (todos: ITodo[], filter: TODO_FILTER_TYPE): ITodo[] => {
     switch (filter) {
-      case Constants.FILTER_SHOW_ALL:
+      case Constants.FILTER_ALL:
         return todos;
-      case Constants.FILTER_SHOW_COMPLETED:
-        return todos.filter((todo: Data.ITodo) => todo.completed);
-      case Constants.FILTER_SHOW_ACTIVE:
-        return todos.filter((todo: Data.ITodo) => !todo.completed);
+      case Constants.FILTER_COMPLETED:
+        return todos.filter((todo: ITodo) => todo.completed);
+      case Constants.FILTER_ACTIVE:
+        return todos.filter((todo: ITodo) => !todo.completed);
       default:
         return todos;
     }

@@ -16,7 +16,7 @@ class TodoInputComponent extends React.Component
       return;
     }
 
-    this.props.addTodo(this.input.value);
+    this.props.createTodo(this.input.value);
     this.input.value = '';
   }
 
@@ -39,6 +39,6 @@ class TodoInputComponent extends React.Component
 export default Redux.connect(
   (state) => state,
   (dispatch) => ({
-    addTodo: (text: string) => dispatch(Actions.addTodo(text))
+    createTodo: (text: string) => dispatch(Actions.createTodo(text))
   })
 )(TodoInputComponent);

@@ -2,9 +2,9 @@
 import Helpers from '../helpers';
 import * as Constants from '../constants';
 
-export const addTodo = (text: string): Actions.IAddTodo => {
+export const createTodo = (text: string): Actions.ICreateTodo => {
   return {
-    type: Constants.Actions.ADD_TODO,
+    type: Constants.Actions.CREATE_TODO,
     payload: {
       id: Helpers.uuid(),
       text
@@ -21,7 +21,7 @@ export const toggleTodo = (id: string): Actions.IToggleTodo => {
   }
 };
 
-export const filterTodos = (filter: TODOS_FILTER): Actions.IFilterTodos => {
+export const filterTodos = (filter: TODO_FILTER_TYPE): Actions.IFilterTodos => {
   return {
     type: Constants.Actions.FILTER_TODOS,
     payload: {

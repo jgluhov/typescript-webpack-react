@@ -1,9 +1,4 @@
-type TODOS_FILTER = 'SHOW_ALL' | 'SHOW_COMPLETED' | 'SHOW_ACTIVE'
-
-interface LINK {
-  href: string,
-  text: string
-}
+type TODO_FILTER_TYPE = 'SHOW_ALL' | 'SHOW_COMPLETED' | 'SHOW_ACTIVE'
 
 interface ITodo {
   id: string,
@@ -11,18 +6,13 @@ interface ITodo {
   completed?: boolean
 }
 
-declare namespace Data {
-  interface ITodo {
-    id: string,
-    text: string
-    completed?: boolean
-  }
-
-  type IFilter = TODOS_FILTER;
+interface IFilter {
+  filter: TODO_FILTER_TYPE,
+  text: string
 }
 
 declare namespace Actions {
-  interface IAddTodo {
+  interface ICreateTodo {
     type: string,
     payload: {
       id: string,
@@ -40,24 +30,15 @@ declare namespace Actions {
   interface IFilterTodos {
     type: string,
     payload: {
-      filter: Data.IFilter
+      filter: TODO_FILTER_TYPE
     }
   }
 }
 
 
-declare namespace ITodo {
-  interface Props {
-    todo: Data.ITodo,
-    onToggle: (todo: Data.ITodo) => void,
-    className: string
-  }
-  interface State {}
-}
-
 declare namespace ITodoInputComponent {
   interface Props {
-    addTodo: (text: string) => void
+    createTodo: (text: string) => void
   }
   interface State {}
 }
@@ -72,30 +53,56 @@ declare namespace ITodosListComponent {
 }
 
 
-declare namespace IFilterListComponent {
+declare namespace ITodosListItemComponent {
   interface Props {
-    filters: TODOS_FILTER[],
-    children?: React.ReactNode
+    todo: ITodo,
+    onToggle: (todo: ITodo) => void,
+    className: string
   }
   interface State {}
 }
 
-declare namespace  IFilterListItemComponent {
-  interface Props {
-    active: boolean,
-    onSelect: (filter: TODOS_FILTER) => void,
-    filter: TODOS_FILTER,
+
+declare namespace IFilterListComponent {
+  interface OwnProps {
     children?: React.ReactNode
   }
-  interface State {}
+  interface OwnState {}
+
+  interface StateProps {
+    filters: IFilter[]
+  }
+
+  interface DispatchProps {}
+
+  interface Props extends OwnProps, StateProps, DispatchProps {}
+  interface State extends OwnState {}
+}
+
+declare namespace IFilterListItemComponent {
+
+  interface OwnProps {
+    filter: TODO_FILTER_TYPE,
+    children?: React.ReactNode
+  }
+
+  interface OwnState {}
+
+  interface StateProps {
+    active: boolean
+  }
+
+  interface DispatchProps {
+    onSelect: (filter: TODO_FILTER_TYPE) => Actions.IFilterTodos
+  }
+
+  interface Props extends OwnProps, StateProps, DispatchProps{}
+  interface State extends OwnState {}
 }
 
 
 declare interface IAppState {
-  todos: Data.ITodo[],
-  filter: TODOS_FILTER,
-  filters: TODOS_FILTER[]
+  todos: ITodo[],
+  filter: TODO_FILTER_TYPE,
+  filters: IFilter[]
 }
-
-
-

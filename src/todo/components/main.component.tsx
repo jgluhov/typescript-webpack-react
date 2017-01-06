@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import VisibleTodoList from '../containers/VisibleTodoList';
-import AddTodoForm from '../containers/AddTodoForm';
+import TodoListComponent from '../components/todos-list/todos-list.component';
+import TodoInputComponent from './todo-input.component';
 
 const MainComponent = () => (
   <main>
-    <AddTodoForm />
-    <VisibleTodoList />
+    <TodoInputComponent />
+    <TodoListComponent />
   </main>
 );
 

@@ -1,6 +1,6 @@
-
+///<reference path="../interfaces.d.ts" />
 export namespace Actions {
-  export const ADD_TODO: string = 'ADD_TODO';
+  export const CREATE_TODO: string = 'CREATE_TODO';
   export const TOGGLE_TODO: string = 'TOGGLE_TODO';
   export const FILTER_TODOS: string = 'FILTER_TODOS';
 }
@@ -11,16 +11,16 @@ export const FILTER_ACTIVE: string = 'FILTER_ACTIVE';
 
 export const TODO_FILTERS = [
   {
-    key: FILTER_ALL,
-    value: 'all'
+    filter: FILTER_ALL,
+    text: 'all'
   },
   {
-    key: FILTER_COMPLETED,
-    value: 'completed'
+    filter: FILTER_ACTIVE,
+    text: 'active'
   },
   {
-    key: FILTER_ACTIVE,
-    value: 'active'
+    filter: FILTER_COMPLETED,
+    text: 'completed'
   }
 ];
 

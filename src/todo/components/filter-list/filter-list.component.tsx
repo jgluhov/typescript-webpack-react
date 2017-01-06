@@ -8,11 +8,11 @@ class FilterListComponent extends React.Component
 
   render() {
     return (
-      <ul className="list-inline">
-        {this.props.filters.map((filter: TODOS_FILTER) =>
-          (<FilterListItemComponent filter={filter}>{filter}</FilterListItemComponent>))}
-      </ul>
-    )
+      <div className="btn-group">
+        { this.props.filters.map((f: IFilter) =>
+          (<FilterListItemComponent key={f.filter} filter={f.filter}>{f.text}</FilterListItemComponent>))}
+      </div>
+    );
   }
 }
 

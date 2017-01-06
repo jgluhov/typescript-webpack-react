@@ -1,9 +1,12 @@
 ///<reference path="../interfaces.d.ts" />
 import * as React from 'react';
-import Helpers from '../helpers';
+import * as Redux from 'react-redux';
+import * as Actions from '../actions';
 import * as Constants from '../constants';
+import Helpers from '../helpers';
 
-class TodoForm extends React.Component<ITodoForm.Props, ITodoForm.State> {
+class TodoInputComponent extends React.Component
+  <ITodoInputComponent.Props, ITodoInputComponent.State> {
   private input: HTMLInputElement;
 
   onSubmit(e: Event) {
@@ -21,18 +24,21 @@ class TodoForm extends React.Component<ITodoForm.Props, ITodoForm.State> {
     return (
       <form onSubmit={this.onSubmit.bind(this)}>
         <div className="form-group">
-          <label htmlFor="todo-text" className="sr-only">
-            {Constants.TodoForm.LABEL}
-          </label>
+          <label htmlFor="todo-text" className="sr-only"></label>
           <input ref={node => this.input = node}
                  id="todo-text"
                  className="form-control input-lg"
-                 placeholder={Constants.TodoForm.PLACEHOLDER}
+                 placeholder={Constants.TODO_INPUT_PLACEHOLDER}
           />
         </div>
       </form>
-    )
+    );
   }
 }
 
-export default TodoForm;
+export default Redux.connect(
+  (state) => state,
+  (dispatch) => ({
+    addTodo: (text: string) => dispatch(Actions.addTodo(text))
+  })
+)(TodoInputComponent);

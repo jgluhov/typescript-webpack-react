@@ -55,7 +55,7 @@ declare namespace ITodo {
   interface State {}
 }
 
-declare namespace ITodoForm {
+declare namespace ITodoInputComponent {
   interface Props {
     addTodo: (text: string) => void
   }

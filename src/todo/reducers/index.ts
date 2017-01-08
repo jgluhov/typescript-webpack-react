@@ -1,7 +1,7 @@
 ///<reference path="../interfaces.d.ts" />
 
 import { combineReducers } from 'redux';
-import todos from './todos';
+import todos, * as fromTodos from './todos';
 import filter from './filter';
 import filters from './filters';
 
@@ -12,3 +12,8 @@ const todoApp = combineReducers<IAppState>({
 });
 
 export default todoApp;
+
+export const filterTodos = (state: IAppState, filter: TODO_FILTER_TYPE) : ITodo[] =>
+  fromTodos.filterTodos(state.todos, filter);
+
+

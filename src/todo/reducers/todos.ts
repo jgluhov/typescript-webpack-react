@@ -43,3 +43,16 @@ const todos = (state = [], action: Actions.ICreateTodo) => {
 };
 
 export default todos;
+
+export const filterTodos = (todos: ITodo[], filter: TODO_FILTER_TYPE): ITodo[] => {
+  switch (filter) {
+    case Constants.FILTER_ALL:
+      return todos;
+    case Constants.FILTER_COMPLETED:
+      return todos.filter((todo: ITodo) => todo.completed);
+    case Constants.FILTER_ACTIVE:
+      return todos.filter((todo: ITodo) => !todo.completed);
+    default:
+      throw new Error(`Unknown filter ${filter}`);
+  }
+};

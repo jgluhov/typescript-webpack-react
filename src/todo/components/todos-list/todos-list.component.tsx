@@ -2,7 +2,7 @@
 import * as Redux from 'react-redux';
 import * as React from 'react';
 import * as Actions from '../../actions';
-import * as Constants from '../../constants';
+import {filterTodos} from '../../reducers';
 import TodosListItemComponent from './todos-list-item.component';
 
 class TodosListComponent extends React.Component
@@ -26,19 +26,6 @@ class TodosListComponent extends React.Component
     )
   }
 
-  public static filterTodos = (todos: ITodo[], filter: TODO_FILTER_TYPE): ITodo[] => {
-    switch (filter) {
-      case Constants.FILTER_ALL:
-        return todos;
-      case Constants.FILTER_COMPLETED:
-        return todos.filter((todo: ITodo) => todo.completed);
-      case Constants.FILTER_ACTIVE:
-        return todos.filter((todo: ITodo) => !todo.completed);
-      default:
-        return todos;
-    }
-  };
-
   public static propTypes = {
     todos: React.PropTypes.arrayOf(React.PropTypes.shape({
       id: React.PropTypes.string.isRequired,
@@ -53,7 +40,7 @@ export default Redux.connect(
   (state) => {
     console.log(state);
     return {
-      todos: TodosListComponent.filterTodos(state.todos, state.filter)
+      todos: filterTodos(state, state.filter)
     }
   },
   (dispatch) => ({

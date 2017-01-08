@@ -20,6 +20,7 @@
   "devDependencies": {
     "@types/core-js": "^0.9.35",
     "@types/node": "^6.0.55",
+    "@types/node-uuid": "0.0.28",
     "@types/react": "^0.14.55",
     "@types/react-dom": "^0.14.20",
     "@types/react-redux": "^4.4.35",
@@ -37,8 +38,11 @@
     "webpack": "^1.14.0"
   },
   "dependencies": {
+    "@types/lodash": "^4.14.47",
     "babel-standalone": "^6.21.1",
     "bootstrap": "^3.3.7",
+    "lodash": "^4.17.4",
+    "node-uuid": "^1.4.7",
     "normalize.css": "^5.0.0",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",

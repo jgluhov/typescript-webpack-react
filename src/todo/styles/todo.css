@@ -3,6 +3,11 @@
   position: relative;
 }
 
+.list-group-item > .completed {
+  text-decoration: line-through;
+  color: #bbbbbb;
+}
+
 .list-group-item button {
   position: absolute;
   right: 10px;

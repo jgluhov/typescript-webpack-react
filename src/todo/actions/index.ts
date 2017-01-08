@@ -1,12 +1,12 @@
 ///<reference path="../interfaces.d.ts" />
-import Helpers from '../helpers';
+import {v4} from 'node-uuid';
 import * as Constants from '../constants';
 
 export const createTodo = (text: string): Actions.ICreateTodo => {
   return {
     type: Constants.Actions.CREATE_TODO,
     payload: {
-      id: Helpers.uuid(),
+      id: v4(),
       text
     }
   }

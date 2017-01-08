@@ -88,7 +88,7 @@ declare namespace ITodosListItemComponent {
   interface DispatchProps {}
 
   interface Props extends OwnProps, StateProps, DispatchProps {}
-  interface State {}
+  interface State extends OwnState {}
 }
 
 
@@ -134,4 +134,8 @@ declare interface IAppState {
   todos: ITodo[],
   filter: TODO_FILTER_TYPE,
   filters: IFilter[]
+}
+
+declare interface IAppStorageState {
+  todos: ITodo[]
 }

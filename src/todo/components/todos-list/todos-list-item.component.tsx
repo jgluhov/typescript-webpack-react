@@ -14,10 +14,14 @@ class TodosListItemComponent extends React.Component<ITodosListItemComponent.Pro
     this.props.onRemove(this.props.todo);
   }
 
+  completedClass(todo: ITodo) {
+    return [todo.completed ? 'completed': ''];
+  }
+
   render() {
     return (
       <li className="list-group-item">
-        <div onClick={this.onToggle.bind(this)}>
+        <div onClick={this.onToggle.bind(this)} className={this.completedClass.call(this, this.props.todo)}>
           {this.props.todo.text}
           <button type="button" className="btn btn-link" onClick={this.onRemove.bind(this)}>
             <i className="glyphicon glyphicon-remove"></i>

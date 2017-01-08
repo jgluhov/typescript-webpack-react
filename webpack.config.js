@@ -28,7 +28,7 @@ module.exports = {
 			},
 			{
 				test: /\.(eot|woff2?|ttf|svg)/,
-				loader: 'file-loader?name=assets/fonts/[name].[hash].[ext]'
+				loader: 'file-loader?name=/public/assets/fonts/[name].[hash].[ext]'
 			}
 		]
 	},

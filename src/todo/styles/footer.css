@@ -1,0 +1,8 @@
+footer .items-counter {
+  float: left;
+  line-height: 34px;
+}
+
+footer .btn-group {
+  float: right;
+}

@@ -16,6 +16,7 @@ class TodosListComponent extends React.Component
             key={todo.id}
             className='list-group-item'
             todo={todo}
+            onRemove={this.props.onRemove.bind(this)}
             onToggle={this.props.onToggle.bind(this)}
           >
             {todo.text}
@@ -53,6 +54,7 @@ export default Redux.connect(
     todos: TodosListComponent.filterTodos(state.todos, state.filter)
   }),
   (dispatch) => ({
-    onToggle: (todo: ITodo) => dispatch(Actions.toggleTodo(todo.id))
+    onToggle: (todo: ITodo) => dispatch(Actions.toggleTodo(todo.id)),
+    onRemove: (todo: ITodo) => dispatch(Actions.removeTodo(todo.id))
   })
 )(TodosListComponent);

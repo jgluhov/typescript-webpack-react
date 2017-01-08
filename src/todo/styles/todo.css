@@ -1,3 +1,21 @@
 .list-group-item {
   cursor: pointer;
+  position: relative;
+}
+
+.list-group-item button {
+  position: absolute;
+  right: 10px;
+  top: 0;
+  height: 100%;
+  opacity: 0;
+  transition: opacity .3s ease-out;
+}
+.list-group-item:hover button {
+  opacity: 1;
+}
+
+.list-group-item button > i {
+  font-size: 14px;
+  color: darkslategray;
 }

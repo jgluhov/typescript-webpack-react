@@ -3,6 +3,8 @@
 import * as Constants from '../constants';
 
 const todo = (state = {}, action: Actions.ICreateTodo) => {
+  const todo = state as ITodo;
+
   switch (action.type) {
     case Constants.Actions.CREATE_TODO:
       return {
@@ -11,16 +13,14 @@ const todo = (state = {}, action: Actions.ICreateTodo) => {
         completed: false
       };
     case Constants.Actions.TOGGLE_TODO:
-      const todo = state as ITodo;
-
       if(todo.id !== action.payload.id) {
         return todo;
       }
-
       return Object.assign({}, todo, {
         completed: !todo.completed
       });
-
+    case Constants.Actions.REMOVE_TODO:
+      return todo.id !== action.payload.id;
     default:
       return state;
   }
@@ -35,6 +35,8 @@ const todos = (state = [], action: Actions.ICreateTodo) => {
       ];
     case Constants.Actions.TOGGLE_TODO:
       return state.map((t: ITodo) => todo(t, action));
+    case Constants.Actions.REMOVE_TODO:
+      return state.filter((t: ITodo) => todo(t, action));
     default:
       return state;
   }

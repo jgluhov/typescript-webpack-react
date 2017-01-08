@@ -27,6 +27,13 @@ declare namespace Actions {
     }
   }
 
+  interface IRemoveTodo {
+    type: string,
+    payload: {
+      id: string
+    }
+  }
+
   interface IFilterTodos {
     type: string,
     payload: {
@@ -47,18 +54,40 @@ declare namespace ITodosListComponent {
   interface Props {
     todos: ITodo[],
     onToggle: (todo: ITodo) => Actions.IToggleTodo,
+    onRemove: (todo: ITodo) => Actions.IRemoveTodo
     children?: React.ReactNode
   }
   interface State {}
 }
 
+declare namespace ITodosListCounterComponent {
+  interface OwnProps {}
+  interface OwnState {}
+  interface StateProps {
+    count: number
+  }
+  interface DispatchProps {}
+  interface Props extends OwnProps, StateProps, DispatchProps {}
+  interface State extends OwnState {}
+}
+
 
 declare namespace ITodosListItemComponent {
-  interface Props {
+  interface OwnProps {
     todo: ITodo,
-    onToggle: (todo: ITodo) => void,
     className: string
   }
+
+  interface OwnState {}
+
+  interface StateProps {
+    onToggle: (todo: ITodo) => void,
+    onRemove: (todo: ITodo) => void
+  }
+
+  interface DispatchProps {}
+
+  interface Props extends OwnProps, StateProps, DispatchProps {}
   interface State {}
 }
 

@@ -2,6 +2,7 @@
 export namespace Actions {
   export const CREATE_TODO: string = 'CREATE_TODO';
   export const TOGGLE_TODO: string = 'TOGGLE_TODO';
+  export const REMOVE_TODO: string = 'REMOVE_TODO';
   export const FILTER_TODOS: string = 'FILTER_TODOS';
 }
 

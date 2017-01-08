@@ -17,5 +17,9 @@ export default class Helpers {
     }
 
     return uuid;
+  };
+
+  public static pluralize(count:number, word: string) {
+    return count === 1 ? word : word + 's';
   }
 }

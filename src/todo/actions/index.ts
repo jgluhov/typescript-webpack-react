@@ -12,6 +12,15 @@ export const createTodo = (text: string): Actions.ICreateTodo => {
   }
 };
 
+export const removeTodo = (id: string): Actions.IRemoveTodo => {
+  return {
+    type: Constants.Actions.REMOVE_TODO,
+    payload: {
+      id
+    }
+  }
+};
+
 export const toggleTodo = (id: string): Actions.IToggleTodo => {
   return {
     type: Constants.Actions.TOGGLE_TODO,

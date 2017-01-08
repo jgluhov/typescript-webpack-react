@@ -3,11 +3,25 @@ import '../../styles/todo.css';
 import * as React from 'react';
 
 class TodosListItemComponent extends React.Component<ITodosListItemComponent.Props, ITodosListItemComponent.State> {
+
+  onToggle(e: Event) {
+    e.stopPropagation();
+    this.props.onToggle(this.props.todo);
+  }
+
+  onRemove(e: Event) {
+    e.stopPropagation();
+    this.props.onRemove(this.props.todo);
+  }
+
   render() {
     return (
       <li className="list-group-item">
-        <div onClick={this.props.onToggle.bind(this, this.props.todo)}>
+        <div onClick={this.onToggle.bind(this)}>
           {this.props.todo.text}
+          <button type="button" className="btn btn-link" onClick={this.onRemove.bind(this)}>
+            <i className="glyphicon glyphicon-remove"></i>
+          </button>
         </div>
       </li>
     );
@@ -15,6 +29,7 @@ class TodosListItemComponent extends React.Component<ITodosListItemComponent.Pro
 
   public static propTypes = {
     onToggle: React.PropTypes.func.isRequired,
+    onRemove: React.PropTypes.func.isRequired,
     todo: React.PropTypes.object.isRequired
   };
 }

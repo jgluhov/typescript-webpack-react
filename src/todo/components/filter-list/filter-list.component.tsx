@@ -9,8 +9,8 @@ class FilterListComponent extends React.Component
   render() {
     return (
       <div className="btn-group">
-        { this.props.filters.map((f: IFilter) =>
-          (<FilterListItemComponent key={f.filter} filter={f.filter}>{f.text}</FilterListItemComponent>))}
+        { this.props.filters.map((filter: IFilter) =>
+          (<FilterListItemComponent key={filter.filter} filter={filter} />))}
       </div>
     );
   }

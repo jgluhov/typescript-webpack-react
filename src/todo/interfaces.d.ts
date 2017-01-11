@@ -54,7 +54,17 @@ declare namespace ITodosListComponent {
   interface Props {
     todos: ITodo[],
     onToggle: (todo: ITodo) => Actions.IToggleTodo,
-    onRemove: (todo: ITodo) => Actions.IRemoveTodo
+    onRemove: (todo: ITodo) => Actions.IRemoveTodo,
+    filter: string,
+    children?: React.ReactNode
+  }
+
+  interface State {}
+}
+
+declare namespace IMainComponent {
+  interface Props {
+    filter: string,
     children?: React.ReactNode
   }
   interface State {}
@@ -111,21 +121,13 @@ declare namespace IFilterListComponent {
 declare namespace IFilterListItemComponent {
 
   interface OwnProps {
-    filter: TODO_FILTER_TYPE,
+    filter: IFilter,
     children?: React.ReactNode
   }
 
   interface OwnState {}
 
-  interface StateProps {
-    active: boolean
-  }
-
-  interface DispatchProps {
-    onSelect: (filter: TODO_FILTER_TYPE) => Actions.IFilterTodos
-  }
-
-  interface Props extends OwnProps, StateProps, DispatchProps{}
+  interface Props extends OwnProps {}
   interface State extends OwnState {}
 }
 
@@ -138,4 +140,15 @@ declare interface IAppState {
 
 declare interface IAppStorageState {
   todos: ITodo[]
+}
+
+declare namespace IAppComponent {
+  interface Props {
+    params: IRouteParams
+  }
+  interface State {}
+}
+
+interface IRouteParams {
+  filter: string;
 }

@@ -13,7 +13,9 @@ const todoApp = combineReducers<IAppState>({
 
 export default todoApp;
 
-export const filterTodos = (state: IAppState, filter: TODO_FILTER_TYPE) : ITodo[] =>
-  fromTodos.filterTodos(state.todos, filter);
+export const filterTodos = (state: IAppState, filter: string) : ITodo[] => {
+  return fromTodos.filterTodos(state.todos, filter);
+};
+
 
 

@@ -25,6 +25,8 @@
       "core-js",
       "react-redux",
       "redux-logger",
+      "react-router",
+      "lodash",
       "node"
     ]
   },

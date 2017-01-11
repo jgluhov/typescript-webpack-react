@@ -37,12 +37,9 @@ class TodosListComponent extends React.Component
 }
 
 export default Redux.connect(
-  (state) => {
-    console.log(state);
-    return {
-      todos: filterTodos(state, state.filter)
-    }
-  },
+  (state, props: ITodosListComponent.Props) => ({
+      todos: filterTodos(state, props.filter)
+  }),
   (dispatch) => ({
     onToggle: (todo: ITodo) => dispatch(Actions.toggleTodo(todo.id)),
     onRemove: (todo: ITodo) => dispatch(Actions.removeTodo(todo.id))

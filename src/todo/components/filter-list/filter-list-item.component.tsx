@@ -1,38 +1,24 @@
 ///<reference path="../../interfaces.d.ts" />
 import * as React from 'react';
-import * as Redux from 'react-redux';
-import * as Actions from '../../actions';
+import { Link } from 'react-router';
+import * as Constants from '../../constants';
 
 class FilterListItemComponent extends React.Component
   <IFilterListItemComponent.Props, IFilterListItemComponent.State> {
 
-  private onClick(e: Event) {
-    e.preventDefault();
-    this.props.onSelect(this.props.filter);
-  }
-
-  private buttonClassName() {
-    return ["btn", "btn-default", this.isActive(this.props.active)].join(' ');
-  }
-
-  private isActive(isActive: boolean) {
-    return isActive ? 'active' : '';
+  linkTo(filter: IFilter): string {
+    return filter.filter === Constants.FILTER_ALL ? '' : filter.text;
   }
 
   render() {
     return (
-      <button type="submit" className={this.buttonClassName.call(this)} onClick={this.onClick.bind(this)}>
-        {this.props.children}
-      </button>
+      <Link className="btn btn-default"
+            to={this.linkTo.call(this, this.props.filter)}
+      >
+        {this.props.filter.text}
+      </Link>
     );
   }
 }
 
-export default Redux.connect(
-  (state: IAppState, props: IFilterListItemComponent.OwnProps) => ({
-    active: props.filter === state.filter
-  }),
-  (dispatch: Redux.Dispatch<Object>) => ({
-    onSelect: (filter: TODO_FILTER_TYPE) => dispatch(Actions.filterTodos(filter))
-  })
-)(FilterListItemComponent);
+export default FilterListItemComponent;

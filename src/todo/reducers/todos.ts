@@ -44,8 +44,15 @@ const todos = (state = [], action: Actions.ICreateTodo) => {
 
 export default todos;
 
-export const filterTodos = (todos: ITodo[], filter: TODO_FILTER_TYPE): ITodo[] => {
-  switch (filter) {
+const filterKey = (filter: string) => {
+  const filtered = Constants.TODO_FILTERS.filter((f: IFilter) => f.text === filter);
+  return filtered.length ? filtered.pop().filter : Constants.FILTER_ALL;
+};
+
+export const filterTodos = (todos: ITodo[], filter: string): ITodo[] => {
+  const filterType = filterKey(filter);
+
+  switch (filterType) {
     case Constants.FILTER_ALL:
       return todos;
     case Constants.FILTER_COMPLETED:

@@ -2,21 +2,17 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './styles/common.css';
 
 import * as React from 'react';
-import {Provider} from "react-redux";
+import {Provider} from 'react-redux';
+import App from './components/app.component';
+import {Router, Route, browserHistory} from 'react-router';
 
 import store from './store';
 
-import HeaderComponent from './components/header.component';
-import MainComponent from './components/main.component';
-import FooterComponent from './components/footer.component';
-
 const TodoApp = () => (
   <Provider store={store}>
-    <div className="container">
-      <HeaderComponent/>
-      <MainComponent />
-      <FooterComponent />
-    </div>
+    <Router history={browserHistory}>
+      <Route path="/(:filter)" component={App}></Route>
+    </Router>
   </Provider>
 );
 
